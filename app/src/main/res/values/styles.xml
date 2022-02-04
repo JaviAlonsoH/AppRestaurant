@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="estilo_fuente_allerta">
+        <item name="android:fontFamily">
+            @font/allerta
+        </item>
+    </style>
+</resources>
