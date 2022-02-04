@@ -13,10 +13,10 @@ interface RestaurantDAO {
     fun findRestById(idRest: Int): RestaurantEntity
 
     @Query("SELECT * FROM restaurant WHERE restaurant.name LIKE :query")
-    fun findRestById(query: String): RestaurantEntity
+    fun findRestByName(query: String): RestaurantEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addRest(restsEntities: List<RestaurantEntity>)
+    fun addRest(restsEntities: RestaurantEntity)
 
     @Delete
     fun deleteRest(restEntity: RestaurantEntity)

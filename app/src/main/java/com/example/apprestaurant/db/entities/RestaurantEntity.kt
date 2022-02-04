@@ -9,7 +9,7 @@ data class RestaurantEntity (
     @ColumnInfo(name = "foodType")
     val foodType: String,
     @ColumnInfo(name = "rating")
-    val rating: Double,
+    val rating: String,
     @PrimaryKey(autoGenerate = true)
     val idRest: Int? = null
 )

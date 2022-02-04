@@ -16,7 +16,7 @@ data class Restaurant (
     @Expose
     val foodType: String,
     @SerializedName("rating")
-    val rating: Double
+    val rating: String
 )
 
 fun Restaurant.toRestObjectExt(): RestaurantObject {

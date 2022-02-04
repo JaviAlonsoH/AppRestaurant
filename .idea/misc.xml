@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/font/allerta.xml" value="0.24666666666666667" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/activity_main.xml" value="0.2203125" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/fragment_add_restaurant.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/fragment_restaurant_list.xml" value="0.2203125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/restaurant_item.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

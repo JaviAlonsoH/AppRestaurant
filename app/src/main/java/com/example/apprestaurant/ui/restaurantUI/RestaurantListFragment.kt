@@ -53,7 +53,7 @@ class RestaurantListFragment : Fragment() {
                 if (response.isSuccessful) {
                     val rest = response.body()
                     //get from api and add to db
-                    RestaurantDB.getInstance(requireContext()).restaurantDao().addRest(rest?.data.toEntity())
+                    //RestaurantDB.getInstance(requireContext()).restaurantDao().addRest()
                     //refresh all list
                     adapter.submitList(rest?.data.toMap())
                 } else {
@@ -122,7 +122,11 @@ class RestaurantListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.restaurantRv.layoutManager = GridLayoutManager(context, 1)
         binding.restaurantRv.adapter= this.adapter
-        // getRestaurants()
+        getRests()
+        val goToAdd = RestaurantListFragmentDirections.listToAdd()
+        binding.floatingPlus.setOnClickListener {
+            findNavController().navigate(goToAdd)
+        }        // getRestaurants()
     }
 
     override fun onDestroyView() {
