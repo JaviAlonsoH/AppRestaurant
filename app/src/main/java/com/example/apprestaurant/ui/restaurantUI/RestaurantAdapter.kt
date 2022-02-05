@@ -12,17 +12,17 @@ class RestaurantAdapter (
     private val onRestaurantClick: (RestaurantObject) -> Unit,
     private val onDeleteClickListener: (RestaurantObject) -> Unit,
         ):
-        androidx.recyclerview.widget.ListAdapter<RestaurantObject, RestaurantAdapter.ViewHolder>(DiffUtilCallback) {
+        ListAdapter<RestaurantObject, RestaurantAdapter.ViewHolderRestaurant>(DiffUtilCallback) {
 
-            inner class ViewHolder(var binding: RestaurantItemBinding) : RecyclerView.ViewHolder(binding.root)
+            inner class ViewHolderRestaurant(var binding: RestaurantItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderRestaurant {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding: RestaurantItemBinding = RestaurantItemBinding.inflate(layoutInflater, parent, false)
-        return  ViewHolder(binding)
+        return  ViewHolderRestaurant(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderRestaurant, position: Int) {
         val restaurant = getItem(position)
         holder.binding.restRating.text = restaurant.rating.toString()
         holder.binding.restName.text = restaurant.name

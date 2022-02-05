@@ -39,7 +39,8 @@ class RestaurantListFragment : Fragment() {
         val action = RestaurantListFragmentDirections.listToDetail(
             it.name,
             it.foodType,
-            it.rating.toString()
+            it.rating.toString(),
+            it.idRest
         )
 
         findNavController().navigate(action)

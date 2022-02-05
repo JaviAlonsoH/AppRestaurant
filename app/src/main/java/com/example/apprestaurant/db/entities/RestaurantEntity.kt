@@ -11,6 +11,7 @@ data class RestaurantEntity (
     @ColumnInfo(name = "rating")
     val rating: String,
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "idRestaurant")
     val idRest: Int? = null
 )
 /*

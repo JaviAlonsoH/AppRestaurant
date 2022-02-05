@@ -31,6 +31,12 @@
         <argument
             android:name="rating"
             app:argType="string" />
+        <action
+            android:id="@+id/detailToAddDelivery"
+            app:destination="@id/addDeliveryFragment" />
+        <argument
+            android:name="restId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/addRestaurantFragment"
@@ -40,5 +46,17 @@
         <action
             android:id="@+id/addToList"
             app:destination="@id/restaurantListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDeliveryFragment"
+        android:name="com.example.apprestaurant.ui.restaurantUI.deliveryUI.AddDeliveryFragment"
+        android:label="fragment_add_delivery"
+        tools:layout="@layout/fragment_add_delivery" >
+        <action
+            android:id="@+id/addDlvToDetail"
+            app:destination="@id/restaurantDetailFragment" />
+        <argument
+            android:name="idRestaurant"
+            app:argType="integer" />
     </fragment>
 </navigation>

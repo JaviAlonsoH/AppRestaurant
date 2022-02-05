@@ -61,7 +61,7 @@ class AddRestaurantFragment : Fragment() {
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     rest = RestaurantEntity(binding.restName.text.toString(), binding.foodType.text.toString(), binding.rating.text.toString())
                     RestaurantDB.getInstance(requireContext()).restaurantDao().addRest(rest!!)
-                    Toast.makeText(context,"Error adding restaurant", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Restaurant added locally", Toast.LENGTH_SHORT).show()
                     Log.e("Network", "Error ${t.localizedMessage}", t)
                 }
             })

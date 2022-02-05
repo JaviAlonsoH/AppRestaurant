@@ -9,8 +9,8 @@ interface RestaurantDAO {
     @Query("SELECT * FROM restaurant")
     fun findAll(): List<RestaurantEntity>
 
-    @Query("SELECT * FROM restaurant WHERE restaurant.idRest = :idRest LIMIT 1")
-    fun findRestById(idRest: Int): RestaurantEntity
+    @Query("SELECT * FROM restaurant WHERE restaurant.idRestaurant = :idRestaurant LIMIT 1")
+    fun findRestById(idRestaurant: Int): RestaurantEntity
 
     @Query("SELECT * FROM restaurant WHERE restaurant.name LIKE :query")
     fun findRestByName(query: String): RestaurantEntity

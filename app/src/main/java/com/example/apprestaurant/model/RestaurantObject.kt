@@ -3,7 +3,7 @@ package com.example.apprestaurant.model
 import com.google.gson.annotations.SerializedName
 
 data class RestaurantObject(
-    @SerializedName("idRest")
+    @SerializedName("idRestaurant")
     val idRest: Int,
     @SerializedName("name")
     val name: String,
