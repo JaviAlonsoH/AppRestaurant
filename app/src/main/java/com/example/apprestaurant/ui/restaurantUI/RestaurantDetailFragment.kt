@@ -62,7 +62,8 @@ class RestaurantDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getDeliveries()
-        binding.dlvRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.dlvRV.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.dlvRV.adapter = this.adapter
         binding.tvName.text = name
         binding.tvFoodType.text = foodType
@@ -77,23 +78,29 @@ class RestaurantDetailFragment : Fragment() {
 
     private fun getDeliveries() {
         RetrofitConfig.service.getDeliveries().enqueue(object : Callback<DeliveryResponse> {
-            override fun onResponse(call: Call<DeliveryResponse>, response: Response<DeliveryResponse>) {
+            override fun onResponse(
+                call: Call<DeliveryResponse>,
+                response: Response<DeliveryResponse>
+            ) {
                 if (response.isSuccessful) {
                     val dlv = response.body()
                     adapter.submitList(dlv?.data.toMap())
                 } else {
                     Log.e("Network", "error en la conexion")
                     //get from db and refresh
-                    val dlvEntity = RestaurantDB.getInstance(requireContext()).deliveryDao().findAllDeliveries()
+                    val dlvEntity =
+                        RestaurantDB.getInstance(requireContext()).deliveryDao().findAllDeliveries()
                     adapter.submitList(dlvEntity.toModel())
 
                 }
             }
+
             override fun onFailure(call: Call<DeliveryResponse>, t: Throwable) {
                 Log.e("Network", "error en la conexion", t)
                 Toast.makeText(context, "error de conexion", Toast.LENGTH_SHORT).show()
                 // get all from db and refresh list
-                val dlvEntity = RestaurantDB.getInstance(requireContext()).deliveryDao().findAllDeliveries()
+                val dlvEntity =
+                    RestaurantDB.getInstance(requireContext()).deliveryDao().findDeliveryByRestaurant(args.restId)
                 adapter.submitList(dlvEntity.toModel())
 
             }
