@@ -24,7 +24,7 @@ class AddRestaurantFragment : Fragment() {
 
     private var _binding: FragmentAddRestaurantBinding? = null
     private val binding get() = _binding!!
-    private var rest : RestaurantEntity? = null
+    private var rest: RestaurantEntity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,22 +46,37 @@ class AddRestaurantFragment : Fragment() {
 
     private fun addRest(name: String) {
         RetrofitConfig.service
-            .addRest(RestaurantRequest(1, name, binding.foodType.toString(), binding.rating.toString()))
+            .addRest(
+                RestaurantRequest(
+                    1,
+                    name,
+                    binding.foodType.toString(),
+                    binding.rating.toString()
+                )
+            )
             .enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
 
-                        Toast.makeText(context,"Restaurant added successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Restaurant added successfully", Toast.LENGTH_SHORT)
+                            .show()
 
-                    }else{
-                        Toast.makeText(context,"Sorry, we couldn't add the restaurant. Try again latter",
-                            Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(
+                            context, "Sorry, we couldn't add the restaurant. Try again latter",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
+
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                    rest = RestaurantEntity(binding.restName.text.toString(), binding.foodType.text.toString(), binding.rating.text.toString())
+                    rest = RestaurantEntity(
+                        binding.restName.text.toString(),
+                        binding.foodType.text.toString(),
+                        binding.rating.text.toString()
+                    )
                     RestaurantDB.getInstance(requireContext()).restaurantDao().addRest(rest!!)
-                    Toast.makeText(context,"Restaurant added locally", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Restaurant added locally", Toast.LENGTH_SHORT).show()
                     Log.e("Network", "Error ${t.localizedMessage}", t)
                 }
             })

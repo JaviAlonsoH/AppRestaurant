@@ -40,6 +40,7 @@ class AddDeliveryFragment : Fragment() {
         }
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,14 +52,15 @@ class AddDeliveryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val delv = RestaurantDB.getInstance(requireContext()).restaurantDao().findRestById(args.idRestaurant)
+        val rest = RestaurantDB.getInstance(requireContext()).restaurantDao()
+            .findRestById(args.idRestaurant)
         binding.btnSaveDelivery.setOnClickListener {
             addDelivery()
             val action = AddDeliveryFragmentDirections.addDlvToDetail(
-                delv.name,
-                delv.foodType,
-                delv.rating,
-                delv.idRest!!
+                rest.name,
+                rest.foodType,
+                rest.rating,
+                rest.idRest!!
             )
             view.findNavController().navigate(action)
         }
@@ -71,20 +73,35 @@ class AddDeliveryFragment : Fragment() {
 
     private fun addDelivery() {
         RetrofitConfig.service
-            .addDelivery(DeliveryRequest(1, binding.etFood.text.toString(), args.idRestaurant, binding.etAddress.text.toString()))
+            .addDelivery(
+                DeliveryRequest(
+                    1,
+                    binding.etFood.text.toString(),
+                    args.idRestaurant,
+                    binding.etAddress.text.toString()
+                )
+            )
             .enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
-                        Toast.makeText(context,"Delivery added successfully", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(context,"Sorry, we couldn't add the restaurant. Try again latter",
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Delivery added successfully", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            context, "Sorry, we couldn't add the restaurant. Try again latter",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
+
                 override fun onFailure(call: Call<Void>, t: Throwable) {
-                    delivery = DeliveryEntity(binding.etFood.text.toString(), args.idRestaurant, binding.etAddress.text.toString())
+                    delivery = DeliveryEntity(
+                        binding.etFood.text.toString(),
+                        args.idRestaurant,
+                        binding.etAddress.text.toString()
+                    )
                     RestaurantDB.getInstance(requireContext()).deliveryDao().addDelivery(delivery!!)
-                    Toast.makeText(context,"Delivery added locally", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Delivery added locally", Toast.LENGTH_SHORT).show()
                     Log.e("Network", "Error ${t.localizedMessage}", t)
                 }
             })

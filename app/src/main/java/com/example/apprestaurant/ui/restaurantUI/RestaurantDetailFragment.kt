@@ -74,6 +74,14 @@ class RestaurantDetailFragment : Fragment() {
             )
             findNavController().navigate(action)
         }
+
+        binding.btnEditRestaurant.setOnClickListener {
+            val action = RestaurantDetailFragmentDirections.detailToEdit(
+                idRest,
+                name
+            )
+            findNavController().navigate(action)
+        }
     }
 
     private fun getDeliveries() {

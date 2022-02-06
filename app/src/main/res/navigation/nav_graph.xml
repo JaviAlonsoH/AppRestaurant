@@ -37,6 +37,9 @@
         <argument
             android:name="restId"
             app:argType="integer" />
+        <action
+            android:id="@+id/detailToEdit"
+            app:destination="@id/editRestaurantFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRestaurantFragment"
@@ -58,5 +61,20 @@
         <argument
             android:name="idRestaurant"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editRestaurantFragment"
+        android:name="com.example.apprestaurant.ui.restaurantUI.EditRestaurantFragment"
+        android:label="fragment_edit_restaurant"
+        tools:layout="@layout/fragment_edit_restaurant" >
+        <argument
+            android:name="restId"
+            app:argType="integer" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/editToDetail"
+            app:destination="@id/restaurantDetailFragment" />
     </fragment>
 </navigation>

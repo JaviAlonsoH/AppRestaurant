@@ -18,6 +18,15 @@ interface RestaurantDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addRest(restsEntities: RestaurantEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addRests(restsEntities: List<RestaurantEntity>)
+
+    @Update(entity = RestaurantEntity::class)
+    fun updateRestaurant(restaurantEntity: RestaurantEntity)
+
+    @Update
+    fun updateRestaurants(restaurantEntities: List<RestaurantEntity>)
+
     @Delete
     fun deleteRest(restEntity: RestaurantEntity)
 

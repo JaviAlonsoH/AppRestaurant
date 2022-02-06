@@ -14,6 +14,13 @@ data class RestaurantEntity (
     @ColumnInfo(name = "idRestaurant")
     val idRest: Int? = null
 )
+
+data class FoodType(
+    val idRest: Int?,
+    val foodType: String,
+    val rating: String
+
+)
 /*
 data class RestaurantDeliveries (
     @Embedded
