@@ -91,15 +91,6 @@
                 app:iconPadding="5sp"
                 style="?attr/materialButtonOutlinedStyle"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/del_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:icon="@android:drawable/ic_menu_delete"
-                android:backgroundTint="@color/white"
-                app:iconTint="@color/sec_red"
-                style="@style/ThemeOverlay.Material3.Button.ElevatedButton"/>
-
         </LinearLayout>
 
 

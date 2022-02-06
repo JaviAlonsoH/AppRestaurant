@@ -38,8 +38,14 @@
             android:name="restId"
             app:argType="integer" />
         <action
-            android:id="@+id/detailToEdit"
+            android:id="@+id/detailToEditRestaurant"
             app:destination="@id/editRestaurantFragment" />
+        <action
+            android:id="@+id/detailToList"
+            app:destination="@id/restaurantListFragment" />
+        <action
+            android:id="@+id/detailToEditDelivery"
+            app:destination="@id/editDeliveryFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRestaurantFragment"
@@ -75,6 +81,21 @@
             app:argType="string" />
         <action
             android:id="@+id/editToDetail"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDeliveryFragment"
+        android:name="com.example.apprestaurant.ui.restaurantUI.deliveryUI.EditDeliveryFragment"
+        android:label="fragment_edit_delivery"
+        tools:layout="@layout/fragment_edit_delivery" >
+        <argument
+            android:name="idDelivery"
+            app:argType="integer" />
+        <argument
+            android:name="restId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/editDeliveryToDetail"
             app:destination="@id/restaurantDetailFragment" />
     </fragment>
 </navigation>

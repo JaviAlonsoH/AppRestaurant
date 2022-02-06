@@ -9,8 +9,7 @@ import com.example.apprestaurant.model.RestaurantObject
 import androidx.recyclerview.widget.ListAdapter
 
 class RestaurantAdapter (
-    private val onRestaurantClick: (RestaurantObject) -> Unit,
-    private val onDeleteClickListener: (RestaurantObject) -> Unit,
+    private val onRestaurantClick: (RestaurantObject) -> Unit
         ):
         ListAdapter<RestaurantObject, RestaurantAdapter.ViewHolderRestaurant>(DiffUtilCallback) {
 
@@ -27,9 +26,6 @@ class RestaurantAdapter (
         holder.binding.restRating.text = restaurant.rating.toString()
         holder.binding.restName.text = restaurant.name
         holder.binding.restFoodtype.text = restaurant.foodType
-        holder.binding.delButton.setOnClickListener {
-            onDeleteClickListener(restaurant)
-        }
         holder.binding.root.setOnClickListener {
             onRestaurantClick(restaurant)
         }

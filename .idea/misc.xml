@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/activity_main.xml" value="0.5046875" />
         <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/delivery_item.xml" value="0.5046875" />
         <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_add_delivery.xml" value="0.5046875" />
         <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_add_restaurant.xml" value="0.5046875" />
+        <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_edit_delivery.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_edit_restaurant.xml" value="0.5046875" />
         <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_restaurant_detail.xml" value="0.5046875" />
+        <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/fragment_restaurant_list.xml" value="0.33" />
+        <entry key="..\:/Users/Javi/Documents/GitHub/AppRestaurant/app/src/main/res/layout/restaurant_item.xml" value="0.5046875" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/font/allerta.xml" value="0.24666666666666667" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/activity_main.xml" value="0.2203125" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/AppRestaurant/app/src/main/res/layout/fragment_add_restaurant.xml" value="0.264" />

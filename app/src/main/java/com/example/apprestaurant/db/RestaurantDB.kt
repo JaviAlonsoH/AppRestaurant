@@ -21,7 +21,7 @@ abstract class RestaurantDB : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, RestaurantDB::class.java, "task.db")
+            Room.databaseBuilder(context.applicationContext, RestaurantDB::class.java, "restaurant.db")
                 .allowMainThreadQueries()
                 .build()
     }

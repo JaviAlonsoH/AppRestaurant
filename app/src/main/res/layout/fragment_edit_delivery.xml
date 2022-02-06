@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.restaurantUI.EditRestaurantFragment"
-    android:orientation="horizontal">
+    tools:context=".ui.restaurantUI.deliveryUI.EditDeliveryFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,13 +14,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="50dp"
-            android:text="Edit "
+            android:text="Edit delivery "
             android:textSize="24sp">
 
         </TextView>
 
         <TextView
-            android:id="@+id/tv_restaurant_name"
+            android:id="@+id/tv_delivery_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -41,14 +40,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New name"
+            android:text="New food"
             android:layout_marginStart="40dp"
             android:layout_marginTop="50dp">
 
         </TextView>
 
         <EditText
-            android:id="@+id/et_restaurant_name"
+            android:id="@+id/et_delivery_food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -61,13 +60,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Food type"
+            android:text="New address"
             android:layout_marginStart="40dp">
 
         </TextView>
 
         <EditText
-            android:id="@+id/et_restaurant_foodtype"
+            android:id="@+id/et_delivery_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -75,30 +74,10 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:hint="Type here">
-        </EditText>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New rating"
-            android:layout_marginStart="40dp">
-
-        </TextView>
-
-        <EditText
-            android:id="@+id/et_restaurant_rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:hint="Type here"
-            android:inputType="numberDecimal">
         </EditText>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_save_restaurant_edit"
+            android:id="@+id/btn_save_delivery_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -108,7 +87,6 @@
         </com.google.android.material.button.MaterialButton>
 
     </LinearLayout>
-
 
 
 </FrameLayout>

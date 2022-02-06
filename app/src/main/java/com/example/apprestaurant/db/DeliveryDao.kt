@@ -19,6 +19,9 @@ interface DeliveryDAO {
     @Query("SELECT * FROM delivery WHERE delivery.idRestaurant = :idRestaurant")
     fun findDeliveryByRestaurant(idRestaurant: Int) : List<DeliveryEntity>
 
+    @Update(entity = DeliveryEntity::class)
+    fun updateDelivery(deliveryEntity: DeliveryEntity)
+
     @Insert
     fun addDelivery(deliveryEntity: DeliveryEntity)
 

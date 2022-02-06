@@ -11,6 +11,7 @@ import com.example.apprestaurant.model.RestaurantObject
 
 class DeliveryAdapter(
     private val onDeleteClickListener: (DeliveryObject) -> Unit,
+    private val onUpdateClickListener: (DeliveryObject) -> Unit
     ):
     ListAdapter<DeliveryObject, DeliveryAdapter.ViewHolder>(DiffUtilCallbackDelivery) {
 
@@ -30,6 +31,10 @@ class DeliveryAdapter(
 
         holder.binding.btnDelDelivery.setOnClickListener {
             onDeleteClickListener(delivery)
+        }
+
+        holder.binding.btnEditDelivery.setOnClickListener {
+            onUpdateClickListener(delivery)
         }
     }
 }

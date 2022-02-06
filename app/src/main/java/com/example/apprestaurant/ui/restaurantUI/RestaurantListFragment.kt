@@ -11,6 +11,7 @@ import android.widget.GridLayout
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.viewpager.widget.ViewPager
 import com.example.apprestaurant.R
 import com.example.apprestaurant.databinding.FragmentRestaurantListBinding
 import com.example.apprestaurant.db.RestaurantDB
@@ -19,6 +20,7 @@ import com.example.apprestaurant.network.response.RestaurantResponse
 import com.example.apprestaurant.network.response.toEntity
 import com.example.apprestaurant.network.response.toMap
 import com.example.apprestaurant.network.response.toModel
+import com.google.android.material.tabs.TabLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,8 +31,7 @@ class RestaurantListFragment : Fragment() {
     private val binding get() = _binding!!
     private var idRest: Int = 0
 
-
-    private val adapter: RestaurantAdapter = RestaurantAdapter({
+    private val adapter: RestaurantAdapter = RestaurantAdapter{
         var name: String = it.name
         var foodType: String = it.foodType
         var rating: String = it.rating.toString()
@@ -42,11 +43,34 @@ class RestaurantListFragment : Fragment() {
             it.rating.toString(),
             it.idRest
         )
-
         findNavController().navigate(action)
-    }, {
-        //deleteRestaurant()
-    })
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentRestaurantListBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.restaurantRv.layoutManager = GridLayoutManager(context, 1)
+        binding.restaurantRv.adapter= this.adapter
+        getRests()
+        val goToAdd = RestaurantListFragmentDirections.listToAdd()
+        binding.floatingPlus.setOnClickListener {
+            findNavController().navigate(goToAdd)
+        }        // getRestaurants()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     private fun getRests() {
         RetrofitConfig.service.getRests().enqueue(object : Callback<RestaurantResponse> {
@@ -75,63 +99,5 @@ class RestaurantListFragment : Fragment() {
 
             }
         })
-    }
-
-    private fun delRest() {
-        RetrofitConfig.service
-            .delRest(idRest)
-            .enqueue(object : Callback<Void> {
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if (response.isSuccessful) {
-                        getRests()
-                        Log.d("Network", "restaurant deleted")
-                        Toast.makeText(
-                            context,
-                            "Restaurant deleted successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Log.d("Network", " network error")
-                        Toast.makeText(
-                            context,
-                            "Sorry, we couldn't delete the restaurant. Try again latter",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(context, "Error deleting restaurant", Toast.LENGTH_SHORT).show()
-                    Log.e("Network", "Error ${t.localizedMessage}", t)
-                    //delete from db
-                    val rest = RestaurantDB.getInstance(requireContext()).restaurantDao().findRestById(idRest)
-                    RestaurantDB.getInstance(requireContext()).restaurantDao().deleteRest(rest)
-                }
-            })
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentRestaurantListBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.restaurantRv.layoutManager = GridLayoutManager(context, 1)
-        binding.restaurantRv.adapter= this.adapter
-        getRests()
-        val goToAdd = RestaurantListFragmentDirections.listToAdd()
-        binding.floatingPlus.setOnClickListener {
-            findNavController().navigate(goToAdd)
-        }        // getRestaurants()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

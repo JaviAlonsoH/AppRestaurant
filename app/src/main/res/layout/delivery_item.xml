@@ -15,9 +15,9 @@
     android:background="@color/red"
     android:outlineSpotShadowColor="@color/red"
     android:outlineProvider="bounds"
-    app:strokeColor="@color/sec_red"
+    app:strokeColor="@color/design_default_color_secondary_variant"
     app:strokeWidth="2dp"
-    android:outlineAmbientShadowColor="@color/red">
+    android:outlineAmbientShadowColor="@color/design_default_color_secondary_variant">
 
     <LinearLayout
         android:layout_width="200dp"
