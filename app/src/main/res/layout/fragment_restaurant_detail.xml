@@ -12,7 +12,9 @@
         app:cardCornerRadius="20dp"
         android:layout_margin="14dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="@color/white"
+        app:strokeWidth="5dp"
+        app:strokeColor="@color/red">
 
 
         <ScrollView
@@ -35,29 +37,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/allerta"
-                        android:padding="8sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
                         android:textAppearance="?attr/textAppearanceHeadline4"
-                        android:textColor="@color/black"></TextView>
-
-                    <TextView
-                        android:id="@+id/detail_rest_id"
-                        android:layout_width="139dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10sp"
-                        android:fontFamily="@font/allerta"
-                        android:padding="8sp"
-                        android:textAppearance="?attr/textAppearanceSubtitle1"
-                        android:textColor="#BDBDBD">
-
+                        android:textColor="@color/black">
                     </TextView>
+
                 </LinearLayout>
 
 
                 <!--Divider-->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_marginTop="20sp"
-                    android:layout_marginBottom="20sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginBottom="5sp"
                     android:layout_marginStart="15sp"
                     android:layout_marginEnd="15sp"
 
@@ -75,13 +68,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20sp"
                         android:layout_marginStart="20sp"
+                        android:layout_marginTop="20sp"
                         android:layout_marginBottom="15sp"
                         android:fontFamily="@font/allerta"
                         android:text="Food Type"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="#BDBDBD" />
+                        android:textColor="#BDBDBD"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_food_type"
@@ -90,13 +84,13 @@
                         android:layout_marginStart="20sp"
                         android:fontFamily="@font/allerta"
                         android:textColor="@color/black"
-                        android:textSize="17dp" />
+                        android:textSize="14sp" />
 
                     <!--Divider-->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_marginTop="30sp"
-                        android:layout_marginBottom="30sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="20sp"
                         android:layout_marginStart="15sp"
                         android:layout_marginEnd="15sp"
 
@@ -111,7 +105,8 @@
                         android:fontFamily="@font/allerta"
                         android:text="Rating"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="#BDBDBD" />
+                        android:textColor="#BDBDBD"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_rating"
@@ -120,7 +115,7 @@
                         android:layout_marginStart="20sp"
                         android:fontFamily="@font/allerta"
                         android:textColor="@color/black"
-                        android:textSize="17dp" />
+                        android:textSize="14sp" />
 
                     <!--Divider-->
                     <View
@@ -136,12 +131,15 @@
                 </LinearLayout>
 
                 <TextView
+                    style="@style/estilo_fuente_allerta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30sp"
+                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
                     android:text="Deliveries"
-                    style="@style/estilo_fuente_allerta">
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+
                 </TextView>
 
                 <Button
@@ -150,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="-30sp"
-                    android:layout_marginEnd="15sp"
+                    android:layout_marginEnd="20sp"
                     android:text="Add"
                     android:textColor="@color/white">
                 </Button>
@@ -159,7 +157,7 @@
                     android:id="@+id/dlv_RV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30sp">
+                    android:layout_margin="10sp">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
